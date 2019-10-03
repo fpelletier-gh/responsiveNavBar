@@ -1,0 +1,30 @@
+$line-color: #f4f4f4;
+
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 1.1rem;
+  width: 1.8rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+
+  .btn-line {
+    width: 1.8rem;
+    height: 0.1rem;
+    background: $line-color;
+  }
+}
+
+@media (min-width: 769px) {
+  .toggle-button {
+    display: none;
+  }
+}

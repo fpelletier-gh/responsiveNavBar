@@ -1,36 +1,38 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import "./header.scss"
+import SideMenuToggleButton from "../components/sideMenu/sideMenuToggleButton"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
+const Header = ({ siteTitle, toggleMenu }) => {
+  // console.log(toggleMenu)
+  // const handleSideMenuToggleButtonClick = () => {
+  //   toggleMenu()
+  // }
+  return (
+    <header className="header">
+      <nav className="header-navigation">
+        <div className="btn-side-menu-toggle">
+          <SideMenuToggleButton toggleMenu={toggleMenu} />
+        </div>
+        <div className="header-logo">
+          <Link to={"/"}>{siteTitle}</Link>
+        </div>
+        <div className="spacer"></div>
+        <div className="header-nav-items">
+          <ul>
+            <li>
+              <Link to={"/users/"}>Products</Link>
+            </li>
+            <li>
+              <Link to={"/"}>Users</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  )
+}
 Header.propTypes = {
   siteTitle: PropTypes.string,
 }
